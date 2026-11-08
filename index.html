@@ -3,109 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#08090f">
-  <meta name="description" content="GetGood Client — пространство для комфортной игры.">
+  <meta name="theme-color" content="#070810">
+  <meta name="description" content="GetGood Client — игровое пространство нового уровня.">
   <title>GetGood Client</title>
 
   <style>
     :root {
       color-scheme: dark;
-      --bg: #08090f;
-      --panel: rgba(24, 25, 37, .72);
-      --border: rgba(200, 205, 255, .13);
-      --text: #f6f6ff;
-      --muted: #9698a8;
-      --accent: #b7bdf5;
-      --accent-strong: #909aeb;
+      --background: #070810;
+      --panel: rgba(22, 23, 35, .72);
+      --border: rgba(193, 202, 255, .14);
+      --text: #f7f7ff;
+      --muted: #999bac;
+      --accent: #b8c3ff;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 110px;
     }
 
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, Arial, sans-serif;
       overflow-x: hidden;
+      color: var(--text);
+      background: var(--background);
+      font-family: Inter, Arial, sans-serif;
     }
 
-    button, input { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    button { cursor: pointer; }
-    a { color: inherit; text-decoration: none; }
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     :focus-visible {
-      outline: 2px solid #c0c8ff;
+      outline: 2px solid #bdc9ff;
       outline-offset: 4px;
     }
 
-    .space {
+    .background {
       position: fixed;
       inset: 0;
       z-index: -2;
       overflow: hidden;
       pointer-events: none;
       background:
-        radial-gradient(ellipse at 49% 16%, rgba(109, 113, 164, .17), transparent 31%),
-        radial-gradient(ellipse at 80% 75%, rgba(74, 78, 125, .12), transparent 35%),
-        #08090f;
+        radial-gradient(ellipse at 50% 15%, rgba(93, 106, 171, .2), transparent 35%),
+        radial-gradient(ellipse at 80% 75%, rgba(69, 83, 158, .12), transparent 35%),
+        #070810;
     }
 
-    .space::before,
-    .space::after {
+    .background::before,
+    .background::after {
       content: "";
       position: absolute;
-      width: 160%;
+      width: 170%;
       height: 3px;
-      left: -30%;
-      top: 43%;
+      left: -35%;
+      top: 42%;
       transform: rotate(17deg);
-      background: linear-gradient(90deg, transparent, #b7c2ff, #fff, #b7c2ff, transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #9cafff,
+        #fff,
+        #9cafff,
+        transparent
+      );
       box-shadow:
-        0 0 15px 5px rgba(196, 204, 255, .55),
-        0 0 50px 20px rgba(146, 159, 237, .24),
-        0 0 120px 45px rgba(115, 125, 204, .12);
-      opacity: .55;
+        0 0 14px 4px rgba(203, 215, 255, .55),
+        0 0 55px 18px rgba(135, 157, 255, .25),
+        0 0 120px 45px rgba(104, 125, 220, .12);
+      opacity: .5;
     }
 
-    .space::after {
-      top: 68%;
-      left: 8%;
-      transform: rotate(-48deg);
-      height: 2px;
-      opacity: .16;
+    .background::after {
+      top: 70%;
+      left: 0;
+      transform: rotate(-49deg);
+      opacity: .15;
     }
 
     .stars {
       position: absolute;
       inset: 0;
-      background-image:
-        radial-gradient(2px 2px at 9% 18%, #fff, transparent),
-        radial-gradient(2px 2px at 24% 6%, #fff, transparent),
-        radial-gradient(1px 1px at 33% 36%, #fff, transparent),
-        radial-gradient(2px 2px at 49% 12%, #fff, transparent),
-        radial-gradient(1px 1px at 63% 25%, #fff, transparent),
-        radial-gradient(2px 2px at 77% 11%, #fff, transparent),
-        radial-gradient(1px 1px at 88% 31%, #fff, transparent),
-        radial-gradient(2px 2px at 96% 58%, #fff, transparent),
-        radial-gradient(1px 1px at 15% 71%, #fff, transparent),
-        radial-gradient(2px 2px at 37% 83%, #fff, transparent),
-        radial-gradient(1px 1px at 73% 88%, #fff, transparent);
       opacity: .65;
-      animation: twinkle 5s ease-in-out infinite alternate;
+      background-image:
+        radial-gradient(2px 2px at 7% 17%, #fff, transparent),
+        radial-gradient(1px 1px at 15% 34%, #fff, transparent),
+        radial-gradient(2px 2px at 24% 6%, #fff, transparent),
+        radial-gradient(1px 1px at 31% 55%, #fff, transparent),
+        radial-gradient(2px 2px at 40% 17%, #fff, transparent),
+        radial-gradient(1px 1px at 49% 39%, #fff, transparent),
+        radial-gradient(2px 2px at 58% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 66% 27%, #fff, transparent),
+        radial-gradient(2px 2px at 76% 12%, #fff, transparent),
+        radial-gradient(1px 1px at 84% 40%, #fff, transparent),
+        radial-gradient(2px 2px at 94% 22%, #fff, transparent),
+        radial-gradient(1px 1px at 12% 80%, #fff, transparent),
+        radial-gradient(2px 2px at 35% 89%, #fff, transparent),
+        radial-gradient(1px 1px at 70% 82%, #fff, transparent),
+        radial-gradient(2px 2px at 91% 76%, #fff, transparent);
+      animation: stars-glow 5s ease-in-out infinite alternate;
     }
 
-    @keyframes twinkle {
-      to { opacity: .3; }
+    @keyframes stars-glow {
+      from { opacity: .35; }
+      to { opacity: .8; }
     }
 
     .container {
-      width: min(1320px, calc(100% - 40px));
+      width: min(1300px, calc(100% - 40px));
       margin: 0 auto;
     }
 
@@ -114,7 +135,12 @@
       top: 0;
       z-index: 20;
       padding: 12px 0;
-      background: linear-gradient(#08090fe8, #08090f88, transparent);
+      background: linear-gradient(
+        180deg,
+        rgba(7, 8, 16, .96),
+        rgba(7, 8, 16, .72),
+        transparent
+      );
     }
 
     .header-inner {
@@ -128,46 +154,48 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-weight: 800;
       white-space: nowrap;
+      font-size: 14px;
+      font-weight: 800;
     }
 
-    .brand-mark {
+    .brand-icon {
       display: grid;
       place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #fff, #858ed1);
-      color: #171927;
+      width: 39px;
+      height: 39px;
+      border-radius: 13px;
+      color: #151827;
+      background: linear-gradient(145deg, #fff, #98a8ed);
+      box-shadow: 0 0 25px rgba(161, 181, 255, .4);
       font-size: 23px;
-      box-shadow: 0 0 24px #a8b3ff55;
+      font-weight: 900;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       padding: 5px;
       border: 1px solid var(--border);
       border-radius: 22px;
-      background: rgba(22, 23, 34, .8);
+      background: rgba(21, 22, 33, .8);
       backdrop-filter: blur(18px);
     }
 
     .nav a {
       padding: 11px 15px;
       border-radius: 16px;
-      color: #a6a7b5;
+      color: #a8aabc;
       font-size: 13px;
       font-weight: 600;
-      transition: .2s;
+      transition: background .2s, color .2s;
     }
 
     .nav a:hover,
     .nav a:first-child {
-      color: #d8dcff;
-      background: rgba(170, 179, 255, .13);
+      color: #e2e7ff;
+      background: rgba(166, 180, 255, .13);
     }
 
     .button {
@@ -179,88 +207,156 @@
       padding: 0 22px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(25, 26, 37, .76);
-      color: #f9f9ff;
-      font-weight: 700;
+      color: #f8f9ff;
+      background: rgba(25, 26, 39, .8);
       font-size: 14px;
+      font-weight: 700;
       transition: transform .2s, background .2s, box-shadow .2s;
     }
 
     .button:hover {
       transform: translateY(-2px);
-      background: rgba(53, 55, 76, .9);
+      background: rgba(50, 53, 75, .95);
     }
 
     .button.primary {
-      color: #171a2b;
       border-color: transparent;
-      background: linear-gradient(135deg, #d1d6ff, #a4adeb);
-      box-shadow: 0 8px 28px rgba(166, 176, 255, .22);
+      color: #161a2c;
+      background: linear-gradient(135deg, #e2e6ff, #a8b6f5);
+      box-shadow: 0 8px 30px rgba(159, 180, 255, .25);
     }
 
     .button.primary:hover {
-      box-shadow: 0 10px 36px rgba(166, 176, 255, .38);
+      box-shadow: 0 10px 38px rgba(159, 180, 255, .42);
     }
 
     .button.small {
       min-height: 38px;
-      padding: 0 16px;
+      padding: 0 15px;
       font-size: 12px;
     }
 
     .hero {
-      position: relative;
-      min-height: 680px;
+      min-height: 690px;
+      padding: 25px 0 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 30px 0 110px;
       text-align: center;
     }
 
     .logo-scene {
-      width: 150px;
-      height: 160px;
+      position: relative;
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 16px;
       display: grid;
       place-items: center;
-      perspective: 600px;
-      margin-bottom: 32px;
-      filter: drop-shadow(0 0 30px rgba(187, 196, 255, .45));
+      perspective: 900px;
     }
 
-    .logo-3d {
+    .logo-scene::before {
+      content: "";
+      position: absolute;
+      inset: 15%;
+      border-radius: 50%;
+      background: rgba(130, 154, 255, .3);
+      filter: blur(48px);
+      animation: logo-glow 4s ease-in-out infinite alternate;
+    }
+
+    .logo-orbit {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      border: 1px solid rgba(190, 207, 255, .23);
+      border-radius: 50%;
+      box-shadow:
+        0 0 20px rgba(145, 165, 255, .16),
+        inset 0 0 20px rgba(145, 165, 255, .1);
+      animation: orbit-spin 12s linear infinite;
+    }
+
+    .logo-orbit::after {
+      content: "";
+      position: absolute;
+      top: 13%;
+      left: 12%;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 12px 3px #a6bbff;
+    }
+
+    .logo-image,
+    .logo-fallback {
       position: relative;
-      font-size: 120px;
+      z-index: 2;
+      animation: logo-float 7s ease-in-out infinite;
+    }
+
+    .logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 20px rgba(169, 190, 255, .65));
+    }
+
+    .logo-fallback {
+      display: none;
+      color: #f8faff;
+      font-size: 155px;
       line-height: 1;
       font-weight: 900;
-      letter-spacing: -10px;
-      color: #f5f6ff;
-      transform-style: preserve-3d;
       text-shadow:
-        1px 1px 0 #b5bce5,
-        2px 2px 0 #a5acd6,
-        3px 3px 0 #929bc6,
-        4px 4px 0 #7e87b2,
-        5px 5px 0 #7079a3,
-        6px 6px 0 #626b96,
-        7px 7px 0 #535c84,
-        8px 8px 16px #101322,
-        0 0 28px rgba(212, 218, 255, .6);
-      animation: spin 7s ease-in-out infinite;
+        1px 1px 0 #c0c9e9,
+        2px 2px 0 #aeb9df,
+        3px 3px 0 #9ca9d3,
+        4px 4px 0 #8b99c5,
+        5px 5px 0 #7b8ab9,
+        6px 6px 0 #6979a8,
+        7px 7px 0 #596994,
+        8px 8px 18px #101426,
+        0 0 30px rgba(193, 210, 255, .8);
     }
 
-    @keyframes spin {
-      0% { transform: rotateY(0deg) rotateX(-8deg); }
-      50% { transform: rotateY(180deg) rotateX(8deg); }
-      100% { transform: rotateY(360deg) rotateX(-8deg); }
+    .logo-scene.no-image .logo-image {
+      display: none;
+    }
+
+    .logo-scene.no-image .logo-fallback {
+      display: block;
+    }
+
+    @keyframes logo-float {
+      0%, 100% {
+        transform: translateY(0) rotateY(-12deg) rotateZ(-3deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotateY(12deg) rotateZ(3deg);
+      }
+    }
+
+    @keyframes orbit-spin {
+      from { transform: rotate(0deg) rotateX(65deg); }
+      to { transform: rotate(360deg) rotateX(65deg); }
+    }
+
+    @keyframes logo-glow {
+      from { opacity: .55; transform: scale(.9); }
+      to { opacity: 1; transform: scale(1.15); }
     }
 
     .eyebrow {
-      color: #b2b6cb;
+      margin: 0 0 13px;
+      color: #b2b8cf;
       font-size: 14px;
       font-weight: 600;
-      margin: 0 0 13px;
     }
 
     .pill {
@@ -268,10 +364,10 @@
       align-items: center;
       gap: 8px;
       padding: 9px 15px;
-      border: 1px solid rgba(194, 202, 255, .16);
+      border: 1px solid rgba(194, 207, 255, .16);
       border-radius: 999px;
-      color: #d2d5ed;
-      background: rgba(35, 37, 53, .65);
+      color: #d6ddf6;
+      background: rgba(35, 39, 57, .65);
       font-size: 12px;
       font-weight: 700;
     }
@@ -280,14 +376,19 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #aeb9ff;
-      box-shadow: 0 0 12px #aeb9ff;
+      background: #b2c2ff;
+      box-shadow: 0 0 12px #b2c2ff;
     }
 
-    h1, h2, h3, p { margin-top: 0; }
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
 
     h1 {
-      margin: 35px 0 19px;
+      margin: 30px 0 19px;
       font-size: clamp(42px, 6vw, 76px);
       line-height: 1.06;
       letter-spacing: -.055em;
@@ -295,17 +396,17 @@
     }
 
     .gradient-text {
-      background: linear-gradient(180deg, #fff 15%, #c0c3d4 65%, #777c9f);
+      color: transparent;
+      background: linear-gradient(180deg, #fff 15%, #c7ccdf 65%, #7b84a6);
       -webkit-background-clip: text;
       background-clip: text;
-      color: transparent;
     }
 
     .accent-text {
-      background: linear-gradient(90deg, #e3e4ff, #909be0);
+      color: transparent;
+      background: linear-gradient(90deg, #edf0ff, #93a8ed);
       -webkit-background-clip: text;
       background-clip: text;
-      color: transparent;
     }
 
     .hero-description {
@@ -320,10 +421,12 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 25px;
+      margin-top: 24px;
     }
 
-    section { padding: 90px 0; }
+    section {
+      padding: 90px 0;
+    }
 
     .section-heading {
       max-width: 650px;
@@ -347,7 +450,6 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
-      align-items: stretch;
     }
 
     .product {
@@ -356,19 +458,19 @@
       padding: 6px;
       border: 1px solid var(--border);
       border-radius: 23px;
-      background: rgba(17, 18, 27, .75);
+      background: rgba(17, 18, 28, .76);
       transition: transform .25s, border-color .25s, box-shadow .25s;
     }
 
     .product:hover {
       transform: translateY(-8px);
-      border-color: rgba(183, 193, 255, .45);
-      box-shadow: 0 15px 50px rgba(144, 153, 225, .13);
+      border-color: rgba(183, 199, 255, .45);
+      box-shadow: 0 15px 50px rgba(144, 166, 235, .15);
     }
 
     .product.featured {
-      border-color: rgba(183, 193, 255, .5);
-      box-shadow: 0 0 40px rgba(150, 160, 237, .12);
+      border-color: rgba(183, 199, 255, .5);
+      box-shadow: 0 0 40px rgba(150, 170, 237, .14);
     }
 
     .badge {
@@ -380,11 +482,11 @@
       padding: 8px 14px;
       border-radius: 999px;
       white-space: nowrap;
-      color: #24283d;
-      background: #d4dcff;
+      color: #242b40;
+      background: #d9e3ff;
+      box-shadow: 0 0 22px rgba(194, 211, 255, .4);
       font-size: 11px;
       font-weight: 800;
-      box-shadow: 0 0 22px #c2cbff55;
     }
 
     .product-inner {
@@ -399,29 +501,29 @@
       border-radius: 17px;
       background:
         linear-gradient(180deg, transparent 10%, rgba(8, 9, 16, .1) 40%, #0b0c15 82%),
-        radial-gradient(circle at 50% 33%, #faf9ff 0 3%, #d4d6fb 4%, transparent 24%),
-        linear-gradient(180deg, #777caa 0%, #b1aed1 38%, #414963 57%, #111321 100%);
+        radial-gradient(circle at 50% 33%, #fafaff 0 3%, #d4dfff 4%, transparent 24%),
+        linear-gradient(180deg, #7888b4 0%, #b1bed8 38%, #424e68 57%, #111321 100%);
     }
 
     .product:nth-child(2) .product-inner {
       background:
         linear-gradient(180deg, transparent 10%, rgba(8, 9, 16, .1) 40%, #0b0c15 82%),
-        radial-gradient(circle at 50% 33%, #fff 0 3%, #c4c9ff 4%, transparent 24%),
-        linear-gradient(180deg, #747ca8 0%, #c0bddb 39%, #56627c 58%, #111321 100%);
+        radial-gradient(circle at 50% 33%, #fff 0 3%, #c4d4ff 4%, transparent 24%),
+        linear-gradient(180deg, #7889b0 0%, #c2c8df 39%, #566681 58%, #111321 100%);
     }
 
     .product:nth-child(3) .product-inner {
       background:
         linear-gradient(180deg, transparent 10%, rgba(8, 9, 16, .1) 40%, #0b0c15 82%),
-        radial-gradient(circle at 50% 33%, #fff 0 3%, #ddd9ff 4%, transparent 24%),
-        linear-gradient(180deg, #9994b7 0%, #d0c7de 38%, #626b85 58%, #111321 100%);
+        radial-gradient(circle at 50% 33%, #fff 0 3%, #dde5ff 4%, transparent 24%),
+        linear-gradient(180deg, #969fbd 0%, #d2d5e5 38%, #626e88 58%, #111321 100%);
     }
 
     .product:nth-child(4) .product-inner {
       background:
         linear-gradient(180deg, transparent 10%, rgba(8, 9, 16, .1) 40%, #0b0c15 82%),
-        radial-gradient(circle at 50% 33%, #fff 0 3%, #d6dfff 4%, transparent 24%),
-        linear-gradient(180deg, #758ab9 0%, #c3c6e8 38%, #536787 58%, #111321 100%);
+        radial-gradient(circle at 50% 33%, #fff 0 3%, #d6e4ff 4%, transparent 24%),
+        linear-gradient(180deg, #758fba 0%, #c3d0e8 38%, #536e8c 58%, #111321 100%);
     }
 
     .product-inner::before {
@@ -435,30 +537,37 @@
       background: repeating-linear-gradient(
         0deg,
         transparent 0 7px,
-        rgba(239, 241, 255, .5) 8px,
+        rgba(239, 245, 255, .5) 8px,
         transparent 9px 15px
       );
       transform: perspective(150px) rotateX(22deg);
       pointer-events: none;
     }
 
-    .product-content { position: relative; z-index: 1; }
-    .product h3 { margin: 0 0 12px; font-size: 20px; }
+    .product-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .product h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
 
     .features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px;
       display: grid;
       gap: 9px;
-      color: #d2d3df;
+      padding: 0;
+      margin: 0 0 20px;
+      list-style: none;
+      color: #d4d7e5;
       font-size: 12px;
     }
 
     .features li::before {
       content: "✧";
       margin-right: 9px;
-      color: #b7c2ff;
+      color: #b7ccff;
     }
 
     .product-bottom {
@@ -468,13 +577,21 @@
       gap: 10px;
     }
 
-    .price { font-size: 18px; font-weight: 800; }
-    .price span { color: #aaaabb; font-size: 12px; font-weight: 500; }
+    .price {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .price span {
+      color: #aeb3c5;
+      font-size: 12px;
+      font-weight: 500;
+    }
 
     .demo-note {
       margin: 24px 0 0;
+      color: #9298ab;
       text-align: center;
-      color: #8f91a4;
       font-size: 12px;
       line-height: 1.6;
     }
@@ -485,7 +602,8 @@
       gap: 16px;
     }
 
-    .info-card, .account-card {
+    .info-card,
+    .account-card {
       padding: 24px;
       border: 1px solid var(--border);
       border-radius: 22px;
@@ -499,14 +617,17 @@
       width: 42px;
       height: 42px;
       margin-bottom: 20px;
-      border: 1px solid rgba(182, 192, 255, .2);
+      border: 1px solid rgba(182, 200, 255, .2);
       border-radius: 13px;
-      color: #c7ceff;
-      background: rgba(165, 176, 255, .09);
+      color: #c7d8ff;
+      background: rgba(165, 190, 255, .09);
       font-size: 20px;
     }
 
-    .info-card h3 { font-size: 17px; }
+    .info-card h3 {
+      font-size: 17px;
+    }
+
     .info-card p {
       margin-bottom: 0;
       color: var(--muted);
@@ -529,8 +650,21 @@
       margin-bottom: 24px;
     }
 
-    .account-top h3 { margin: 0 0 5px; }
-    .account-top p { margin: 0; color: var(--muted); font-size: 13px; }
+    .account-top h3 {
+      margin: 0 0 5px;
+    }
+
+    .account-top p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .account-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
     .account-grid {
       display: grid;
@@ -549,7 +683,7 @@
     .field-label {
       display: block;
       margin-bottom: 9px;
-      color: #9295aa;
+      color: #969caf;
       font-size: 12px;
     }
 
@@ -565,8 +699,8 @@
       padding: 13px 15px;
       border: 1px solid rgba(197, 184, 121, .2);
       border-radius: 12px;
-      background: rgba(197, 184, 121, .06);
       color: #c6bf9d;
+      background: rgba(197, 184, 121, .06);
       font-size: 12px;
       line-height: 1.6;
     }
@@ -585,8 +719,18 @@
       background: rgba(22, 23, 33, .75);
     }
 
-    summary { cursor: pointer; font-weight: 700; font-size: 14px; }
-    details p { color: var(--muted); line-height: 1.7; font-size: 14px; margin: 14px 0 0; }
+    summary {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    details p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
 
     footer {
       margin-top: 50px;
@@ -609,9 +753,20 @@
       line-height: 1.7;
     }
 
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links a { color: #aaaaba; font-size: 13px; }
-    .footer-links a:hover { color: #fff; }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #adb1c2;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
 
     .copyright {
       display: flex;
@@ -621,17 +776,17 @@
       margin-top: 35px;
       padding-top: 20px;
       border-top: 1px solid var(--border);
-      color: #77798a;
+      color: #7c8294;
       font-size: 12px;
     }
 
     dialog {
       width: min(460px, calc(100% - 28px));
       padding: 0;
-      border: 1px solid rgba(190, 199, 255, .2);
+      border: 1px solid rgba(190, 205, 255, .2);
       border-radius: 24px;
       color: var(--text);
-      background: #141520;
+      background: #141620;
       box-shadow: 0 30px 100px #000b;
     }
 
@@ -640,7 +795,9 @@
       backdrop-filter: blur(8px);
     }
 
-    .modal { padding: 26px; }
+    .modal {
+      padding: 26px;
+    }
 
     .modal-top {
       display: flex;
@@ -649,23 +806,31 @@
       gap: 15px;
     }
 
-    .modal h2 { margin: 0 0 8px; font-size: 23px; }
-    .modal p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .modal h2 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
 
     .close {
       width: 34px;
       height: 34px;
       border: 1px solid var(--border);
       border-radius: 10px;
-      background: #20212e;
       color: #fff;
+      background: #20232f;
       font-size: 20px;
     }
 
     label {
       display: block;
       margin: 18px 0 8px;
-      color: #c4c5d5;
+      color: #c4c9d8;
       font-size: 13px;
     }
 
@@ -675,38 +840,94 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       color: #fff;
-      background: #0d0e16;
+      background: #0d0f17;
     }
 
-    .modal .button { width: 100%; margin-top: 18px; }
+    .modal .button {
+      width: 100%;
+      margin-top: 18px;
+    }
 
     @media (max-width: 1000px) {
-      .cards { grid-template-columns: repeat(2, 1fr); gap: 22px 16px; }
-      .nav a { padding: 10px; }
-      .brand-name { display: none; }
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px 16px;
+      }
+
+      .nav a {
+        padding: 10px;
+      }
+
+      .brand-name {
+        display: none;
+      }
     }
 
     @media (max-width: 650px) {
-      .container { width: min(100% - 28px, 1320px); }
-      .header-inner { flex-wrap: wrap; }
+      .container {
+        width: min(100% - 28px, 1300px);
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
       .nav {
         order: 3;
         width: 100%;
         justify-content: space-around;
       }
-      .nav a { padding: 9px 7px; font-size: 11px; }
-      .hero { min-height: 620px; padding-bottom: 70px; }
-      .logo-scene { margin-bottom: 12px; }
-      .hero-description { font-size: 15px; }
-      section { padding: 65px 0; }
-      .cards { grid-template-columns: 1fr; }
-      .product, .product-inner { min-height: 400px; }
-      .info-grid, .account-grid { grid-template-columns: 1fr; }
-      .account-card { padding: 18px; }
+
+      .nav a {
+        padding: 9px 7px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 620px;
+        padding-bottom: 70px;
+      }
+
+      .logo-scene {
+        width: 190px;
+        height: 190px;
+      }
+
+      .logo-fallback {
+        font-size: 125px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .product,
+      .product-inner {
+        min-height: 400px;
+      }
+
+      .info-grid,
+      .account-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .account-card {
+        padding: 18px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
@@ -717,14 +938,14 @@
 </head>
 
 <body>
-  <div class="space" aria-hidden="true">
+  <div class="background" aria-hidden="true">
     <div class="stars"></div>
   </div>
 
   <header class="header">
     <div class="container header-inner">
       <a href="#home" class="brand" aria-label="GetGood Client — на главную">
-        <span class="brand-mark">G</span>
+        <span class="brand-icon">G</span>
         <span class="brand-name">GetGood Client</span>
       </a>
 
@@ -743,12 +964,25 @@
 
   <main>
     <div id="home" class="container hero">
-      <div class="logo-scene" aria-label="Логотип GetGood">
-        <div class="logo-3d" aria-hidden="true">G</div>
+      <div class="logo-scene" id="logo-scene">
+        <div class="logo-orbit" aria-hidden="true"></div>
+
+        <img
+          class="logo-image"
+          id="logo-image"
+          src="g-logo.png"
+          alt="Светящаяся буква G — логотип GetGood"
+        >
+
+        <span class="logo-fallback" aria-hidden="true">G</span>
       </div>
 
       <p class="eyebrow">Создан для твоего игрового пространства</p>
-      <div class="pill"><span class="dot"></span> GETGOOD CLIENT</div>
+
+      <div class="pill">
+        <span class="dot"></span>
+        GETGOOD CLIENT
+      </div>
 
       <h1>
         <span class="gradient-text">Minecraft Client.</span><br>
@@ -764,16 +998,26 @@
         <button class="button primary" type="button" data-open-account>
           Открыть кабинет ↗
         </button>
-        <a class="button" href="#shop">Посмотреть тарифы</a>
+
+        <a class="button" href="#shop">
+          Посмотреть тарифы
+        </a>
       </div>
     </div>
 
     <section id="shop">
       <div class="container">
         <div class="section-heading">
-          <span class="pill"><span class="dot"></span> ВЫБИРАЙ СВОЁ</span>
+          <span class="pill">
+            <span class="dot"></span>
+            ВЫБИРАЙ СВОЁ
+          </span>
+
           <h2 class="gradient-text">Наши тарифы</h2>
-          <p>Выбери подходящий вариант и открой для себя GetGood Client.</p>
+
+          <p>
+            Выбери подходящий вариант и открой для себя GetGood Client.
+          </p>
         </div>
 
         <div class="cards">
@@ -781,15 +1025,19 @@
             <div class="product-inner">
               <div class="product-content">
                 <h3>Месяц</h3>
+
                 <ul class="features">
                   <li>Доступ к клиенту</li>
                   <li>Удобный интерфейс</li>
                   <li>Обновления клиента</li>
                   <li>Поддержка проекта</li>
                 </ul>
+
                 <div class="product-bottom">
                   <div class="price">250 ₽ <span>/ 30 дней</span></div>
-                  <button class="button small" type="button" data-purchase>Выбрать</button>
+                  <button class="button small" type="button" data-purchase>
+                    Выбрать
+                  </button>
                 </div>
               </div>
             </div>
@@ -797,18 +1045,23 @@
 
           <article class="product featured">
             <span class="badge">Популярный выбор</span>
+
             <div class="product-inner">
               <div class="product-content">
                 <h3>3 месяца</h3>
+
                 <ul class="features">
                   <li>Доступ к клиенту</li>
                   <li>Удобный интерфейс</li>
                   <li>Обновления клиента</li>
                   <li>Поддержка проекта</li>
                 </ul>
+
                 <div class="product-bottom">
                   <div class="price">325 ₽ <span>/ 3 месяца</span></div>
-                  <button class="button small" type="button" data-purchase>Выбрать</button>
+                  <button class="button small" type="button" data-purchase>
+                    Выбрать
+                  </button>
                 </div>
               </div>
             </div>
@@ -818,15 +1071,19 @@
             <div class="product-inner">
               <div class="product-content">
                 <h3>Навсегда</h3>
+
                 <ul class="features">
                   <li>Доступ к клиенту</li>
                   <li>Удобный интерфейс</li>
                   <li>Обновления клиента</li>
                   <li>Поддержка проекта</li>
                 </ul>
+
                 <div class="product-bottom">
                   <div class="price">550 ₽ <span>/ бессрочно</span></div>
-                  <button class="button small" type="button" data-purchase>Выбрать</button>
+                  <button class="button small" type="button" data-purchase>
+                    Выбрать
+                  </button>
                 </div>
               </div>
             </div>
@@ -836,15 +1093,19 @@
             <div class="product-inner">
               <div class="product-content">
                 <h3>Сброс HWID</h3>
+
                 <ul class="features">
                   <li>Управление устройством</li>
                   <li>Интерфейс кабинета</li>
                   <li>Статус подключения</li>
                   <li>Помощь пользователям</li>
                 </ul>
+
                 <div class="product-bottom">
                   <div class="price">Демо <span>/ услуга</span></div>
-                  <button class="button small" type="button" data-purchase>Подробнее</button>
+                  <button class="button small" type="button" data-purchase>
+                    Подробнее
+                  </button>
                 </div>
               </div>
             </div>
@@ -852,34 +1113,51 @@
         </div>
 
         <p class="demo-note">
-          Цены и возможности показаны для примера. Оплата и выдача доступа пока не подключены.
+          Цены и возможности показаны для примера.
+          Оплата и выдача доступа пока не подключены.
         </p>
       </div>
     </section>
 
-    <section>
+    <section id="features">
       <div class="container">
         <div class="section-heading">
-          <span class="pill"><span class="dot"></span> ВОЗМОЖНОСТИ</span>
+          <span class="pill">
+            <span class="dot"></span>
+            ВОЗМОЖНОСТИ
+          </span>
+
           <h2 class="gradient-text">Создано с вниманием</h2>
-          <p>Интерфейс проекта, в котором всё важное находится на своём месте.</p>
+
+          <p>
+            Интерфейс проекта, в котором всё важное находится на своём месте.
+          </p>
         </div>
 
         <div class="info-grid">
           <div class="info-card">
             <div class="info-icon">✦</div>
             <h3>Современный дизайн</h3>
-            <p>Тёмная тема, мягкое свечение и удобное отображение на компьютере и телефоне.</p>
+            <p>
+              Тёмная тема, мягкое свечение и удобное отображение
+              на компьютере и телефоне.
+            </p>
           </div>
+
           <div class="info-card">
             <div class="info-icon">▤</div>
             <h3>Личный кабинет</h3>
-            <p>Демонстрационный интерфейс профиля и информации об устройстве.</p>
+            <p>
+              Демонстрационный интерфейс профиля и информации об устройстве.
+            </p>
           </div>
+
           <div class="info-card">
             <div class="info-icon">⌘</div>
             <h3>Для разработчиков</h3>
-            <p>Заготовка интерфейса для будущей панели управления проектом.</p>
+            <p>
+              Заготовка интерфейса для будущей панели управления проектом.
+            </p>
           </div>
         </div>
       </div>
@@ -888,9 +1166,16 @@
     <section id="account">
       <div class="container">
         <div class="section-heading">
-          <span class="pill"><span class="dot"></span> ЛИЧНОЕ ПРОСТРАНСТВО</span>
+          <span class="pill">
+            <span class="dot"></span>
+            ЛИЧНОЕ ПРОСТРАНСТВО
+          </span>
+
           <h2 class="gradient-text">Твой кабинет</h2>
-          <p>Посмотри, как будет выглядеть профиль GetGood Client.</p>
+
+          <p>
+            Посмотри, как будет выглядеть профиль GetGood Client.
+          </p>
         </div>
 
         <div class="account-card">
@@ -899,9 +1184,15 @@
               <h3 id="account-name">Гость</h3>
               <p id="account-status">Демонстрационный режим</p>
             </div>
-            <div>
-              <button class="button small" type="button" data-open-account>Открыть демо</button>
-              <button class="button small" type="button" id="reset-demo">Сбросить</button>
+
+            <div class="account-actions">
+              <button class="button small" type="button" data-open-account>
+                Открыть демо
+              </button>
+
+              <button class="button small" type="button" id="reset-demo">
+                Сбросить
+              </button>
             </div>
           </div>
 
@@ -910,10 +1201,12 @@
               <span class="field-label">Роль</span>
               <span class="field-value" id="account-role">Гость</span>
             </div>
+
             <div class="field">
               <span class="field-label">ID демо-сессии</span>
               <span class="field-value" id="account-id">Не создан</span>
             </div>
+
             <div class="field">
               <span class="field-label">HWID устройства</span>
               <span class="field-value">Не подключён</span>
@@ -921,8 +1214,9 @@
           </div>
 
           <p class="warning">
-            Это только демонстрация интерфейса, не настоящий вход. Роль разработчика
-            не даёт доступа к управлению сайтом. Настоящий HWID браузер не получает.
+            Это только демонстрация интерфейса, не настоящий вход.
+            Роль разработчика не даёт доступа к управлению сайтом.
+            Настоящий HWID браузер не получает.
           </p>
         </div>
       </div>
@@ -931,27 +1225,50 @@
     <section id="help">
       <div class="container">
         <div class="section-heading">
-          <span class="pill"><span class="dot"></span> ЕСТЬ ВОПРОСЫ?</span>
+          <span class="pill">
+            <span class="dot"></span>
+            ЕСТЬ ВОПРОСЫ?
+          </span>
+
           <h2 class="gradient-text">Помощь</h2>
-          <p>Ответы на основные вопросы о текущей версии сайта.</p>
+
+          <p>
+            Ответы на основные вопросы о текущей версии сайта.
+          </p>
         </div>
 
         <div class="faq">
           <details>
             <summary>Как работает кабинет?</summary>
-            <p>Сейчас это демонстрация: имя и выбранная роль сохраняются только в браузере на этом устройстве. Настоящая регистрация не подключена.</p>
+            <p>
+              Сейчас это демонстрация: имя и выбранная роль сохраняются
+              только в браузере на этом устройстве.
+              Настоящая регистрация не подключена.
+            </p>
           </details>
+
           <details>
             <summary>Можно ли купить клиент?</summary>
-            <p>Пока нет. Цены демонстрационные, а оплата и автоматическая выдача доступа не подключены.</p>
+            <p>
+              Пока нет. Цены демонстрационные, а оплата и автоматическая
+              выдача доступа не подключены.
+            </p>
           </details>
+
           <details>
             <summary>Что такое HWID?</summary>
-            <p>Это идентификатор устройства, который обычно обрабатывается приложением. Этот сайт не получает и не хранит настоящий HWID.</p>
+            <p>
+              Это идентификатор устройства, который обычно обрабатывается
+              приложением. Этот сайт не получает и не хранит настоящий HWID.
+            </p>
           </details>
+
           <details>
             <summary>Как подключить настоящий вход?</summary>
-            <p>Понадобится отдельный сервис авторизации или сервер, база данных и проверка прав пользователя на серверной стороне.</p>
+            <p>
+              Понадобится отдельный сервис авторизации или сервер,
+              база данных и проверка прав пользователя на серверной стороне.
+            </p>
           </details>
         </div>
       </div>
@@ -963,10 +1280,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#home" class="brand">
-            <span class="brand-mark">G</span>
+            <span class="brand-icon">G</span>
             <span>GetGood Client</span>
           </a>
-          <p>Игровое пространство с вниманием к деталям. Создано для комфортной игры.</p>
+
+          <p>
+            Игровое пространство с вниманием к деталям.
+            Создано для комфортной игры.
+          </p>
         </div>
 
         <div class="footer-links">
@@ -979,7 +1300,10 @@
 
       <div class="copyright">
         <span>© <span id="year"></span> GetGood Client</span>
-        <span>Minecraft — товарный знак Mojang AB. Проект не связан с Mojang или Microsoft.</span>
+        <span>
+          Minecraft — товарный знак Mojang AB.
+          Проект не связан с Mojang или Microsoft.
+        </span>
       </div>
     </div>
   </footer>
@@ -989,21 +1313,44 @@
       <div class="modal-top">
         <div>
           <h2 id="modal-title">Демо кабинета</h2>
-          <p>Настоящий вход и регистрация пока не подключены. Не вводи пароль или личные данные.</p>
+
+          <p>
+            Настоящий вход и регистрация пока не подключены.
+            Не вводи пароль или личные данные.
+          </p>
         </div>
-        <button class="close" type="button" id="close-dialog" aria-label="Закрыть">×</button>
+
+        <button
+          class="close"
+          type="button"
+          id="close-dialog"
+          aria-label="Закрыть"
+        >×</button>
       </div>
 
       <form id="demo-form">
         <label for="nickname">Любое демонстрационное имя</label>
-        <input id="nickname" name="nickname" maxlength="24" placeholder="Например, Player" required>
 
-        <button class="button primary" type="submit">Открыть как игрок ↗</button>
-        <button class="button" type="button" id="developer-demo">Посмотреть вид разработчика</button>
+        <input
+          id="nickname"
+          name="nickname"
+          maxlength="24"
+          placeholder="Например, Player"
+          required
+        >
+
+        <button class="button primary" type="submit">
+          Открыть как игрок ↗
+        </button>
+
+        <button class="button" type="button" id="developer-demo">
+          Посмотреть вид разработчика
+        </button>
       </form>
 
       <p class="warning">
-        Выбор вида разработчика не является авторизацией и не предоставляет никаких прав.
+        Выбор вида разработчика не является авторизацией
+        и не предоставляет никаких прав.
       </p>
     </div>
   </dialog>
@@ -1012,6 +1359,8 @@
     (function () {
       "use strict";
 
+      var logo = document.getElementById("logo-image");
+      var logoScene = document.getElementById("logo-scene");
       var dialog = document.getElementById("account-dialog");
       var form = document.getElementById("demo-form");
       var nickname = document.getElementById("nickname");
@@ -1020,6 +1369,17 @@
       var idField = document.getElementById("account-id");
       var statusField = document.getElementById("account-status");
       var storageKey = "getgood-demo-profile";
+
+      function showFallback() {
+        logoScene.classList.add("no-image");
+        logoScene.setAttribute("aria-label", "Логотип GetGood: буква G");
+      }
+
+      logo.addEventListener("error", showFallback);
+
+      if (logo.complete && logo.naturalWidth === 0) {
+        showFallback();
+      }
 
       document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -1033,7 +1393,9 @@
         }
 
         nameField.textContent = profile.name;
-        roleField.textContent = profile.role === "developer" ? "Разработчик — демо" : "Игрок — демо";
+        roleField.textContent = profile.role === "developer"
+          ? "Разработчик — демо"
+          : "Игрок — демо";
         idField.textContent = profile.id;
         statusField.textContent = "Локальный демо-профиль";
       }
@@ -1041,7 +1403,11 @@
       function load() {
         try {
           var saved = localStorage.getItem(storageKey);
-          if (!saved) return;
+
+          if (!saved) {
+            return;
+          }
+
           var profile = JSON.parse(saved);
 
           if (
@@ -1058,19 +1424,28 @@
       }
 
       function makeId() {
-        if (window.crypto && typeof window.crypto.randomUUID === "function") {
-          return "DEMO-" + window.crypto.randomUUID().slice(0, 8).toUpperCase();
+        if (
+          window.crypto &&
+          typeof window.crypto.randomUUID === "function"
+        ) {
+          return "DEMO-" + window.crypto.randomUUID()
+            .slice(0, 8)
+            .toUpperCase();
         }
-        return "DEMO-" + Math.random().toString(36).slice(2, 10).toUpperCase();
+
+        return "DEMO-" + Math.random()
+          .toString(36)
+          .slice(2, 10)
+          .toUpperCase();
       }
 
       function saveProfile(role) {
         var name = nickname.value.trim();
 
         if (!name) {
-          nickname.focus();
           nickname.setCustomValidity("Введи демонстрационное имя");
           nickname.reportValidity();
+          nickname.focus();
           return;
         }
 
@@ -1085,12 +1460,15 @@
         try {
           localStorage.setItem(storageKey, JSON.stringify(profile));
         } catch (error) {
-          // Кабинет продолжит работать до обновления страницы.
+          // Без хранилища профиль работает до обновления страницы.
         }
 
         render(profile);
         dialog.close();
-        document.getElementById("account").scrollIntoView({ behavior: "smooth" });
+
+        document.getElementById("account").scrollIntoView({
+          behavior: "smooth"
+        });
       }
 
       nickname.addEventListener("input", function () {
@@ -1099,7 +1477,9 @@
 
       document.querySelectorAll("[data-open-account]").forEach(function (button) {
         button.addEventListener("click", function () {
-          if (!dialog.open) dialog.showModal();
+          if (!dialog.open) {
+            dialog.showModal();
+          }
         });
       });
 
@@ -1120,15 +1500,20 @@
         try {
           localStorage.removeItem(storageKey);
         } catch (error) {
-          // Если хранилище недоступно, сбрасываем отображение.
+          // Сбрасываем отображение даже без доступа к хранилищу.
         }
+
         render(null);
         nickname.value = "";
+        nickname.setCustomValidity("");
       });
 
       document.querySelectorAll("[data-purchase]").forEach(function (button) {
         button.addEventListener("click", function () {
-          alert("Это демонстрационный сайт. Оплата и выдача доступа пока не подключены.");
+          alert(
+            "Это демонстрационный сайт. " +
+            "Оплата и выдача доступа пока не подключены."
+          );
         });
       });
 
